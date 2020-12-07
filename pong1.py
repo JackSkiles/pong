@@ -26,6 +26,12 @@ paddle_b.penup()
 paddle_b.goto(-350, 0)
 paddle_b.shapesize(stretch_wid=5, stretch_len=1)
 
+square = turtle.Turtle()
+square.speed(0)
+square.shape("square")
+square.color("white")
+square.penup()
+square.goto(0, 0)
 
 #Main game loop
 while True:
