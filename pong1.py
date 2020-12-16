@@ -42,8 +42,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0,0)
-ball.dx = 1
-ball.dy = 1
+ball.dx = .1
+ball.dy = .1
 running = True
 
 def paddle_a_up():
@@ -101,3 +101,16 @@ while True:
     ball.sety(ball.ycor() + ball.dy)
 
     #border check
+    if ball.ycor () > 290:
+        ball.sety(290)
+        ball.dy *= -1
+    if ball.ycor () < -290:
+        ball.sety(-290)
+        ball.dy *= -1
+    
+    if ball.xcor () > 390:
+        ball.setx(0)
+        ball.dx *= -1
+    if ball.xcor () < -390:
+        ball.setx(0)
+        ball.dx *= -1
