@@ -44,6 +44,10 @@ def paddle_a_up():
 
 def paddle_b_up():
     y = paddle_b.ycor()
+    # if(y == 200):
+    #     y-= 1
+    # else:
+    #     y += 10
     y += 20
     paddle_b.sety(y)
     print("moved")
@@ -55,14 +59,17 @@ def paddle_a_down():
 
 def paddle_b_down():
     y = paddle_b.ycor()
+    # if(y == -200):
+    #     y += 1
+    # else:
+    #     y -= 10
     y -= 20
     paddle_b.sety(y)
 
 def player2Move():
-    seed(1)
 # generate some integers
     for _ in range(1):
-        value = randint(0, 5)
+        value = randint(0, 1)
         if value == 0:
             paddle_b_up()
             print(value)
@@ -70,16 +77,12 @@ def player2Move():
             print(value)
             paddle_b_down()
 wn.listen()
-
 wn.onkeypress(paddle_a_up, "w")
 wn.onkeypress(paddle_a_down, "s")
-def f():
-    if running:
-        wn.ontimer(player2Move, 250)
+# wn.ontimer(player2Move, 2500)
 # wn.ontimer(player2Move, 25)
-# wn.onkeypress(paddle_b_up, 'i')
-# wn.onkeypress(paddle_b_down, 'k')
-f()
+wn.onkeypress(paddle_b_up, 'Up')
+wn.onkeypress(paddle_b_down, 'Down')
 #Main game loop
 while True:
     wn.update()
