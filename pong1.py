@@ -28,13 +28,22 @@ paddle_b.penup()
 paddle_b.goto(-350, 0)
 paddle_b.shapesize(stretch_wid=5, stretch_len=1)
 
-square = turtle.Turtle()
-square.speed(0)
-square.shape("square")
-square.color("white")
-square.penup()
-square.goto(0, 0)
-game = 0
+# square = turtle.Turtle()
+# square.speed(0)
+# square.shape("square")
+# square.color("white")
+# square.penup()
+# square.goto(0, 0)
+# game = 0
+
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape("square")
+ball.color("white")
+ball.penup()
+ball.goto(0,0)
+ball.dx = 1
+ball.dy = 1
 running = True
 
 def paddle_a_up():
@@ -44,7 +53,7 @@ def paddle_a_up():
 
 def paddle_b_up():
     y = paddle_b.ycor()
-    # if(y == 200):
+    # if(y == 300):
     #     y-= 1
     # else:
     #     y += 10
@@ -59,7 +68,7 @@ def paddle_a_down():
 
 def paddle_b_down():
     y = paddle_b.ycor()
-    # if(y == -200):
+    # if(y == -300):
     #     y += 1
     # else:
     #     y -= 10
@@ -86,3 +95,9 @@ wn.onkeypress(paddle_b_down, 'Down')
 #Main game loop
 while True:
     wn.update()
+
+    #move ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    #border check
