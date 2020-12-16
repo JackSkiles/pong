@@ -35,6 +35,7 @@ square.color("white")
 square.penup()
 square.goto(0, 0)
 game = 0
+running = True
 
 def paddle_a_up():
     y = paddle_a.ycor()
@@ -61,7 +62,7 @@ def player2Move():
     seed(1)
 # generate some integers
     for _ in range(1):
-        value = randint(0, 1)
+        value = randint(0, 5)
         if value == 0:
             paddle_b_up()
             print(value)
@@ -72,10 +73,13 @@ wn.listen()
 
 wn.onkeypress(paddle_a_up, "w")
 wn.onkeypress(paddle_a_down, "s")
-wn.ontimer(player2Move, 250)
+def f():
+    if running:
+        wn.ontimer(player2Move, 250)
+# wn.ontimer(player2Move, 25)
 # wn.onkeypress(paddle_b_up, 'i')
 # wn.onkeypress(paddle_b_down, 'k')
-
+f()
 #Main game loop
 while True:
     wn.update()
