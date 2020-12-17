@@ -4,6 +4,7 @@ import turtle
 from random import seed
 from random import randint
 
+
 wn = turtle.Screen()
 wn.title("pong")
 wn.bgcolor("black")
