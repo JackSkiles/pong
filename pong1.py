@@ -155,13 +155,15 @@ while True:
         ball.sety(0)
         ball.dx *= -1
         player2_score += 1
-        pen.reset
+        pen.clear()
+        pen.write("Player 2: {} Player 1: {}".format(player2_score, player1_score), align="center", font=("Courier", 20, "normal"))
     if ball.xcor() < -390:
         ball.setx(0)
         ball.sety(0)
         ball.dx *= -1
         player1_score += 1
-        pen.reset
+        pen.clear()
+        pen.write("Player 2: {} Player 1: {}".format(player2_score, player1_score), align="center", font=("Courier", 20, "normal"))
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() -40):
         ball.setx(340)
         # ball.sety(- paddle_a.ycor())
