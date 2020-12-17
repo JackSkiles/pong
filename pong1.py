@@ -10,13 +10,20 @@ wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 
-player1_score = turtle.Turtle()
-player1_score.write("Python is cool", font=("Calibri", 8, "bold"))
-player1_score.goto(0, 250)
-player1_score.color("white")
+player2_score = 0
+player1_score = 0
+
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 250)
+pen.write("Player 2: {} Player 1: {}".format(player2_score, player1_score), align="center", font=("Courier", 20, "normal"))
 # player1_score.shape("square")
 # player1_score.goto(400, 0)
 
+#player1 paddle
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
 paddle_a.shape("square")
@@ -25,7 +32,7 @@ paddle_a.penup()
 paddle_a.goto(350, 0)
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
 
-
+#cpu player paddle
 paddle_b = turtle.Turtle()
 paddle_b.speed(0)
 paddle_b.shape("square")
@@ -147,10 +154,14 @@ while True:
         ball.setx(0)
         ball.sety(0)
         ball.dx *= -1
+        player2_score += 1
+        pen.reset
     if ball.xcor() < -390:
         ball.setx(0)
         ball.sety(0)
         ball.dx *= -1
+        player1_score += 1
+        pen.reset
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() -40):
         ball.setx(340)
         # ball.sety(- paddle_a.ycor())
